@@ -1,15 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JavaScript Objects Lab</title>
-  <meta name="description" content="Practice manipulating JavaScript objects">
-  <meta name="author" content="Flatiron School">
-</head>
-<body>
-  hello
-  <script type="text/javascript" src="index.js"></script>
-</body>
-</html>
+// Step 1: Initialize the employee object
+const employee = {
+    name: "John Doe",
+    streetAddress: "123 Main St"
+};
+// Employee Object Initialized
+
+// Step 2: Function to non-destructively update an employee object
+function updateEmployeeWithKeyAndValue(employee, key, value) {
+    return {
+        ...employee,
+        [key]: value
+    };
+}
+// Non-Destructive Update Function (updateEmployeeWithKeyAndValue)
+
+// Step 3: Function to destructively update an employee object
+function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
+    employee[key] = value;
+    return employee;
+}
+// Destructive Update Function (destructivelyUpdateEmployeeWithKeyAndValue)
+
+// Step 4: Function to non-destructively delete a key from an employee object
+function deleteFromEmployeeByKey(employee, key) {
+    const newEmployee = { ...employee };
+    delete newEmployee[key];
+    return newEmployee;
+}
+// Non-Destructive Delete Function (deleteFromEmployeeByKey)
+
+// Step 5: Function to destructively delete a key from an employee object
+function destructivelyDeleteFromEmployeeByKey(employee, key) {
+    delete employee[key];
+    return employee;
+}
+// Destructive Delete Function (destructivelyDeleteFromEmployeeByKey)
+
+// Export functions for testing
+module.exports = {
+    employee,
+    updateEmployeeWithKeyAndValue,
+    destructivelyUpdateEmployeeWithKeyAndValue,
+    deleteFromEmployeeByKey,
+    destructivelyDeleteFromEmployeeByKey
+};
+// Module Export for Testing
